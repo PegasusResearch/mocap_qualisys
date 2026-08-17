@@ -24,6 +24,7 @@ from launch import LaunchDescription
 from launch.actions import EmitEvent
 from launch.actions import SetEnvironmentVariable
 from launch_ros.actions import LifecycleNode
+from launch_ros.actions import Node
 from launch_ros.events.lifecycle import ChangeState
 
 import lifecycle_msgs.msg
@@ -49,6 +50,14 @@ def generate_launch_description():
         parameters=[params_file_path],
     )
 
+    pose_enu_node = Node(
+        name='mocap_pose_enu',
+        namespace='',
+        package='mocap_pose_enu',
+        executable='mocap_pose_enu_node',
+        output='screen',
+    )
+
     # Make the driver node take the 'configure' transition
     driver_configure_trans_event = EmitEvent(
         event=ChangeState(
@@ -70,6 +79,7 @@ def generate_launch_description():
 
     ld.add_action(stdout_linebuf_envvar)
     ld.add_action(driver_node)
+    ld.add_action(pose_enu_node)
     ld.add_action(driver_configure_trans_event)
     ld.add_action(driver_activate_trans_event)
 

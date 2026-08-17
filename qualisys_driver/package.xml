@@ -25,6 +25,7 @@
   <exec_depend>tf2_msgs</exec_depend>
   <exec_depend>geometry_msgs</exec_depend>
   <exec_depend>mocap4r2_msgs</exec_depend>
+  <exec_depend>mocap_pose_enu</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

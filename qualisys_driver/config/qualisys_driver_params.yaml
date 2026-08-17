@@ -1,6 +1,6 @@
 qualisys_driver_node:
   ros__parameters:
-    host_name: "192.168.1.64"
+    host_name: "192.168.254.1"
     host_port: 22222
     frame_count: 0
     last_frame_number: 0
@@ -9,5 +9,5 @@ qualisys_driver_node:
     qos_history_policy: "keep_all"         # keep_all / keep_last
     qos_reliability_policy: "best_effort"  # best_effort / reliable
     qos_depth: 10                         # 10 / 100 / 1000
-    publish_rate: 10
-    frame_id: "qualisys"
+    publish_rate: 60
+    frame_id: "map"
